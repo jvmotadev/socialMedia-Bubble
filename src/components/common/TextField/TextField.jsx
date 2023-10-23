@@ -9,13 +9,19 @@ const TextField = ({ label,
     required,
     placeholder,
     value,
-    onChange,
-    hasError, }) => {
+    width,
+    height }) => {
     return (
         <StyleTextfield>
             <label htmlFor={name}>{label}</label>
-            <Input
-                placeholder='Input' />
+            <textarea
+                required={required}
+                type={type}
+                width={width}
+                height={height}
+                placeholder={placeholder}
+                value={value}>
+            </textarea>
         </StyleTextfield>
     )
 }
@@ -25,7 +31,7 @@ const StyleTextfield = styled.fieldset`
   border: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   padding: 0;
  `
 
