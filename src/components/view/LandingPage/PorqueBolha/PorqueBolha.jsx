@@ -1,8 +1,9 @@
 import { Users, Devices, ShieldPlus, Prohibit } from "@phosphor-icons/react"
+import { PorqueBolhaStyle } from "./porque-bolha.style"
 
-const BannerPorqueBolha = () => {
+const PorqueBolha = () => {
   return (
-    <div>
+    <PorqueBolhaStyle>
       <h1>Porque bolha?</h1>
       <p>Bolha é a rede social que trás algo novo e diferente das redes oferecidas, estore sua bolha e se conecte com o que você mais gosta, escolha  apenas o que você deseja ver em seu feed.</p>
       <div className="lista-beneficios">
@@ -30,8 +31,8 @@ const BannerPorqueBolha = () => {
           <p>Sem anúncio</p>
         </div>
       </div>
-    </div>
+    </PorqueBolhaStyle>
   )
 }
 
-export default BannerPorqueBolha
+export default PorqueBolha
