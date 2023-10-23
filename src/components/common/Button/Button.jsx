@@ -39,7 +39,7 @@ const ButtonCadastrarSecundario = styled(StylesButton)`
     
 `
 const ButtonForms = styled(StylesButton)`
-    background-color: ${(props) => props.theme.colors.black.b50};
+    background-color: ${(props) => props.theme.colors.primary.p2};
     color: ${(props) => props.theme.colors.black.b100};
     width: ${(props) => props.width};
     height: ${(props) => props.height};
