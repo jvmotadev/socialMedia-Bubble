@@ -5,11 +5,11 @@ import styled from "styled-components"
 const Button = ({ texto, variant, width, onClick, fontSize, height, fontWeight }) => {
     return (
         <>
-            {variant == 'primary' && <ButtonCadastrarPrimario onClick={onClick} width={width} font-size={fontSize} height={height} font-weight={fontWeight}>{texto}</ButtonCadastrarPrimario>}
-            {variant == 'secondary' && <ButtonCadastrarSecundario onClick={onClick} width={width} font-size={fontSize} height={height} font-weight={fontWeight}>{texto}</ButtonCadastrarSecundario>}
-            {variant == 'buttonForms' && <ButtonForms onClick={onClick} width={width} font-size={fontSize} height={height} font-weight={fontWeight}>{texto}</ButtonForms>}
-            {variant == 'buttonPostarOrdenar' && <ButtonPostarOrdenarDescendente onClick={onClick} width={width} font-size={fontSize} height={height} font-weight={fontWeight}>{texto}</ButtonPostarOrdenarDescendente>}
-            {variant == 'buttonAscendente' && <ButtonOrdenarAscendente onClick={onClick} width={width} font-size={fontSize} height={height} font-weight={fontWeight}>{texto}</ButtonOrdenarAscendente>}
+            {variant == 'primary' && <ButtonCadastrarPrimario onClick={onClick} width={width} fontSize={fontSize} height={height} fontWeight={fontWeight}>{texto}</ButtonCadastrarPrimario>}
+            {variant == 'secondary' && <ButtonCadastrarSecundario onClick={onClick} width={width} fontSize={fontSize} height={height} fontWeight={fontWeight}>{texto}</ButtonCadastrarSecundario>}
+            {variant == 'buttonForms' && <ButtonForms onClick={onClick} width={width} fontSize={fontSize} height={height} fontWeight={fontWeight}>{texto}</ButtonForms>}
+            {variant == 'buttonPostarOrdenar' && <ButtonPostarOrdenarDescendente onClick={onClick} width={width} fontSize={fontSize} height={height} fontWeight={fontWeight}>{texto}</ButtonPostarOrdenarDescendente>}
+            {variant == 'buttonAscendente' && <ButtonOrdenarAscendente onClick={onClick} width={width} fontSize={fontSize} height={height} fontWeight={fontWeight}>{texto}</ButtonOrdenarAscendente>}
         </>
     )
 }
@@ -22,6 +22,7 @@ const StylesButton = styled.button`
     align-items: center;
     gap: 10px;
     cursor: pointer;
+    font-family: poppins;
 `
 const ButtonCadastrarPrimario = styled(StylesButton)`
     background-color: ${(props) => props.theme.colors.primary.p3};
@@ -29,6 +30,8 @@ const ButtonCadastrarPrimario = styled(StylesButton)`
     color: ${(props) => props.theme.colors.black.b100};
     width: ${(props) => props.width};
     height: ${(props) => props.height};
+    font-weight: ${(props) => props.fontWeight};
+    font-size: ${(props) => props.fontSize};
 `
 const ButtonCadastrarSecundario = styled(StylesButton)`
     background-color: ${(props) => props.theme.colors.primary.p1};
@@ -36,13 +39,16 @@ const ButtonCadastrarSecundario = styled(StylesButton)`
     border-radius: 8px;
     width: ${(props) => props.width};
     height: ${(props) => props.height};
-    
+    font-weight: ${(props) => props.fontWeight};
+    font-size: ${(props) => props.fontSize};
 `
 const ButtonForms = styled(StylesButton)`
     background-color: ${(props) => props.theme.colors.primary.p2};
     color: ${(props) => props.theme.colors.black.b100};
     width: ${(props) => props.width};
     height: ${(props) => props.height};
+    font-weight: ${(props) => props.fontWeight};
+    font-size: ${(props) => props.fontSize};
 `
 const ButtonPostarOrdenarDescendente = styled(StylesButton)`
     border-radius: 24px;
@@ -51,6 +57,8 @@ const ButtonPostarOrdenarDescendente = styled(StylesButton)`
     border-radius: 24px;
     width: ${(props) => props.width};
     height: ${(props) => props.height};
+    font-weight: ${(props) => props.fontWeight};
+    font-size: ${(props) => props.fontSize};
 `
 const ButtonOrdenarAscendente = styled(StylesButton)`
     border-radius: 24px;
@@ -59,6 +67,8 @@ const ButtonOrdenarAscendente = styled(StylesButton)`
     border-radius: 24px;
     width: ${(props) => props.width};
     height: ${(props) => props.height};
+    font-weight: ${(props) => props.fontWeight};
+    font-size: ${(props) => props.fontSize};
 `
 
 
