@@ -8,6 +8,9 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 	//classes para a fonte Poppins
+	.font-1-xxs {
+			font: 400 0.75rem "Poppins", sans-serif;
+	}
 	.font-1-xs {
 			font: 500 0.75rem "Poppins", sans-serif;
 	}
