@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components"
-import Logo from '../../../assets/images/logo-bubble-b.svg'
+import logo from '/logo-bubble-b.svg'
 import Button from "../Button/Button"
 // import { Link } from 'react-router-dom'
 const Header = ({ widthLogo, heigthLogo, padding }) => {
@@ -9,7 +9,7 @@ const Header = ({ widthLogo, heigthLogo, padding }) => {
             // fontSize={fontSize}
             padding={padding}
         >
-            <img src={Logo} alt=""
+            <img src={logo} alt=""
                 width={widthLogo}
                 height={heigthLogo}
             />
