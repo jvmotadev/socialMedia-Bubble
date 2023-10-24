@@ -1,11 +1,20 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+	* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+	}
+
+	a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+	ul {
+		list-style: none;
+	}
 
 	//classes para a fonte Poppins
 	.font-1-xs {
