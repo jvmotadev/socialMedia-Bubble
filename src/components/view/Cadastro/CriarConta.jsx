@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import Input from '../../common/Input/Input'
 import Button from '../../common/Button/Button'
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { postUsuario } from '../../../services/usuarioApi';
 
 const CriarConta = () => {
@@ -32,19 +32,25 @@ const CriarConta = () => {
 				}, 2000)
       } else {
         setErro(resposta.message);
+        setTimeout(() => {
+          setErro('')
+        }, 3000)
       }
     } catch (error) {
       console.error('Erro ao criar conta:', error);
       setErro('Erro inesperado ao criar a conta.');
+      setTimeout(() => {
+        setErro('')
+      }, 3000)
     }
   }
 
-  const criarConta = async (username, email, senha) => {
+  const criarConta = async (nomeUsuario, email, senha) => {
     try {
       const body = {
-        username,
-        email,
+        nomeUsuario,
         senha,
+        email,
       };
       
       const resposta = await postUsuario(body, senha);
@@ -52,7 +58,7 @@ const CriarConta = () => {
       return resposta;
     } catch (error) {
       console.error('Erro ao criar conta:', error);
-      throw new Error('Erro inesperado ao criar a conta.');
+      throw new Error('Dados Inválidos.');
     }
   }
 
@@ -115,8 +121,8 @@ const CriarConta = () => {
             <input type="checkbox" />
             <span className='font-1-xxs'>Aceito os  <a href="">termos e condições</a></span>
           </div>
-          {erro && <p className="error-message">{erro}</p>}
-          {successMessage && <p className="success-message">{successMessage}</p>}
+          {erro && <p className="error-message font-2-s">{erro}</p>}
+          {successMessage && <p className="success-message font-2-s">{successMessage}</p>}
           <Button
             type={"submit"}
             texto={"CADASTRE-SE"}
@@ -162,6 +168,25 @@ input{
     .box-title{
         margin: 2rem 0;
 
+    }
+
+    .error-message,
+    .success-message {
+      border-radius: 4px;
+      font-size: 1.2rem !important; 
+      place-self: center;
+      padding: 0.5rem;
+      text-shadow: 1px 1px 6px red;
+    }
+
+    .error-message {
+      background: red;
+      color: white !important;
+    }
+
+    .success-message {
+      background: green;
+      color: white !important;
     }
 
     h1{
