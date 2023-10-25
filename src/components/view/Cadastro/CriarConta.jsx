@@ -23,7 +23,6 @@ const CriarConta = () => {
     }
 
     try {
-      // Chama a função para criar a conta e envia os dados para a API
       const resposta = await criarConta(username, email, senha);
       
       if (resposta.success) {
@@ -40,7 +39,6 @@ const CriarConta = () => {
     }
   }
 
-  // Função para criar a conta na API
   const criarConta = async (username, email, senha) => {
     try {
       const body = {
@@ -48,8 +46,7 @@ const CriarConta = () => {
         email,
         senha,
       };
-
-      // Realiza a chamada da API para criar a conta
+      
       const resposta = await postUsuario(body, senha);
 
       return resposta;
