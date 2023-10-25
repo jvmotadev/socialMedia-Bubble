@@ -1,28 +1,37 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import styled from "styled-components"
-import TextField from "../TextField/TextField"
 
-const Modal = ({ open, titulo, fechaModal, nome, children }) => {
+
+const Modal = ({ open, nomeUsuario, fechaModal, conteudo }) => {
     const handleClose = (e) => {
         e.target.id === 'modal' && fechaModal()
     }
     return (
 
         <StylesModal>
-            <StylesCabeçalho>
-                <img src="" alt="foto perfil usuario" />
-                <p>{nome}</p>
-            </StylesCabeçalho>
-
-
-            <StylesContentModal>
-
-                <TextField
-                    width='100%'
-                    height='519px' />
-                {children}
-            </StylesContentModal>
+            <div className="conteiner">
+                <div className="usuario">
+                    <img
+                        className="foto"
+                        src="../../../../public/foto-ana-luiza.png"
+                        alt="foto usuario"
+                    />
+                    <div className="dados-usuario">
+                        <h1 className="nomeUsuario">{nomeUsuario}</h1>
+                    </div>
+                    <div className="close">
+                        <img src="../../../../public/icons8-close.svg" alt="icone close modal" />
+                    </div>
+                </div>
+                <div className="conteudo">
+                    <textarea
+                        className="textarea"
+                        placeholder="compartilhe sua bolha de pensamento...">
+                    </textarea>
+                </div>
+                <button className="btn">Postar</button>
+            </div>
         </StylesModal>
 
 
@@ -31,24 +40,128 @@ const Modal = ({ open, titulo, fechaModal, nome, children }) => {
 
 const StylesModal = styled.div`
     display: flex;
-    flex-shrink: 0;
-    flex-direction: column;
-    background-color: ${(props) => props.theme.colors.primary.p1};
+    justify-content: center;
+    .conteiner{
+        border-radius: 24px;
+        background: ${(props) => props.theme.colors.primary.p1};
+        width: 376px;
+        height: 280px;
+    }
+
+    .usuario{
+        display: flex;
+        gap: 30px;
+        padding: 2rem;
+    }
+
+    .dados-usuario{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nomeUsuario{
+        color: ${(props) => props.theme.colors.black.b200};
+        font-family: Poppins;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px; /* 133.333% */
+    }
+
+    .date{
+        color: ${(props) => props.theme.colors.grey.g400};
+        font-family: Poppins;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px; /* 120% */
+    }
+
+    .close{
+      margin-left: 60%;
+      cursor: pointer;
+    }
+
+    .conteudo{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap:3px;
+    }
+
+    .p{
+        display: flex;
+        justify-content: center;
+        width: 248px;
+        height: 127px;
+        color: ${(props) => props.theme.colors.black.b100};
+        font-family: Poppins;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px; /* 133.333% */
+    }
+
+    .textarea{
+        width: 80%;
+        height: 13vh;
+        color: ${(props) => props.theme.colors.black.b100};
+        font-family: Poppins;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 142.857% */
+    }
+
+    .btn{
+        width: 60px;
+        border-radius: 24px;
+        background: ${(props) => props.theme.colors.primary.p2};
+        margin-left: 70%;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+
+    .foto{
+        width: 50px;
+        border-radius: 100px;
+    }
+
+    @media (min-width: 400px) and (max-width: 600px){
+        .close{
+            margin-left: 50%;
+        }
+    }
+
+    @media (min-width: 601px) and (max-width: 1023px){
+        .conteiner{
+            width: 468px;
+            height: 280px;
+        }
+
+        
+    }
+
+    @media (min-width: 1024px) and (max-width:1300px){
+        .conteiner{
+            width: 560px;
+            height: 280px;
+        }
+        .close{
+            margin-left: 70%;
+        }    
+    }
+
+    @media (min-width: 1301px){
+        .conteiner{
+            width: 780px;
+            height: 280px;
+        }
+        .close{
+            margin-left: 80%;
+        }  
+    }
 `
-const StylesCabeçalho = styled.div`
-    display: flex;
-    gap: 14px;
-    padding: 20px 176px 0 32px;
-    color: ${(props) => props.theme.colors.black.b200};
-    font-family: Poppins;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px; 
-`
-const StylesContentModal = styled.div`
-   display: flex;
-  padding: 47px 32px 49px 32px;
-`
+
 
 export default Modal
