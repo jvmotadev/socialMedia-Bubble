@@ -6,10 +6,8 @@ import Button from '../../common/Button/Button'
 const CriarConta = () => {
     return (
         <StyleBannerCadastro>
-            <div className='logo'>
+            <div className='container'>
                 <img src="./logo-bubble-w.svg" alt="" />
-            </div>
-            <section className='section'>
                 <div className='box-title'>
                     <h1 className='font-1-xl'>Criar Conta</h1>
                     <p className='font-1-xxs'>Crie agora a sua bolha!</p>
@@ -22,8 +20,6 @@ const CriarConta = () => {
                             type={"text"}
                             required={"required"}
                             placeholder={"joa1zin"}
-                            width={"15.5rem"}
-                            height={"2rem"}
                         />
                     </div>
                     <div className='box-email'>
@@ -33,48 +29,39 @@ const CriarConta = () => {
                             type={"email"}
                             required={"required"}
                             placeholder={"joao@email.com"}
-                            width={"15.5rem"}
-                            height={"2rem"}
                         />
                     </div>
                     <div className='box-senha'>
                         <div>
                             <span className='font-1-xxs'>senha</span>
-                            <Input 
-                                name={"senha"}
-                                type={"password"}
-                                required={"required"}
-                                placeholder={"•••••••••••••••••••"}
-                                width={"7.5rem"}
-                                height={"2rem"}
-                            />
+                                <Input 
+                                    name={"senha"}
+                                    type={"password"}
+                                    required={"required"}
+                                    placeholder={"•••••••••••••••••••"}
+                                />
                         </div>
                         <div>
                             <span className='font-1-xxs'>confirmar-senha</span>
-                            <Input 
-                                name={"senha"}
-                                type={"password"}
-                                required={"required"}
-                                placeholder={"•••••••••••••••••••"}
-                                width={"7.5rem"}
-                                height={"2rem"}
-                            />
+                                <Input 
+                                    name={"confirmar-senha"}
+                                    type={"password"}
+                                    required={"required"}
+                                    placeholder={"•••••••••••••••••••"}
+                                />
                         </div>
-                    </div>
-                    <div className='box-check'>
-                        <input type="checkbox" />
-                        <span className='font-1-xxs'>Aceito os  <a href="">termos e condições</a></span>
-                    </div>
-                    <Button
-                        type = "submit"
-                        width={"15.5rem"} 
-                        font-size={"12px"} 
-                        height={"1rem"} 
-                        texto={"CADASTRE-SE"}
-                        variant={'buttonForms'}
-                        />
-                </form>
-            </section>
+                        </div>
+                        <div className='box-check'>
+                            <input type="checkbox" />
+                            <span className='font-1-xxs'>Aceito os  <a href="">termos e condições</a></span>
+                        </div>
+                        <Button
+                            type={"submit"}
+                            texto={"CADASTRE-SE"}
+                            variant={'buttonForms'}
+                            />
+                    </form>
+                </div>
         </StyleBannerCadastro>
     )
 }
@@ -83,147 +70,219 @@ export default CriarConta
 
 const StyleBannerCadastro = styled.div`
 //------------------------dimensionamento para mobile-first------------------------//
-height: 507px;
+max-width: 100%;
 display: flex;
-align-items: center;
-flex-direction: column;
-margin: 80px 52px;
-border-radius: 4px;
-background: rgba(0, 0, 0, 0.85);
+justify-content: center;
 
-    .logo{
-        margin-top: 20px;
-        width: 95px;
+input{
+    border-style: none;
+    padding: 0.5rem;
+    color: ${(props) => props.theme.colors.white.w200};
+}
+
+
+.container{
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.85);
+    max-width: 376px;
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+
+    img{
+        margin-top: 1rem;
+        width: 96px;
         height: 36px;
+        align-self: center;
     }
 
     .box-title{
-        margin-bottom: 30px;
+        margin: 2rem 0;
+
     }
 
-    .box-title h1{
+    h1{
         color: ${(props) => props.theme.colors.white.w200};
     }
 
-    .box-title p{
+    p, span{
         color: ${(props) => props.theme.colors.grey.g100};
+
     }
 
-    .box-username{
-        margin-bottom: 16px;
-    }
-
-    .box-email{
-        margin-bottom: 16px;
-    }
-
-    .box-senha{
-        gap: 8px;
+    form{
         display: flex;
-        margin-bottom: 8px;
-    }
-
-    .box-check{
-        display: flex;
-        gap: 8px;
-        margin-bottom: 24px;
-    }
-
-    .form span{
-        color: ${(props) => props.theme.colors.grey.g100};
-    }
-
-    .form input{
-        color: ${(props) => props.theme.colors.white.w200};
-        padding: 8px 12px;
-        border: none;
-    }
-
-    .section{
-        margin: 24px 64px 65px 64px;
-    }
-
-    button{
-        font-weight: bold;
-    }
-
-    //---------------------------------------------------------------------------//
-
-
-        @media (min-width: 580px) and (max-width: 1000px){
-        margin: 72px 100px 107px 104px;
-        height: 756px;
-
-        .logo{
-            margin-top: 20px;
-            width: 114px;
-            height: 43px;
-        }
-
-        .box-title{
-            margin-bottom: 60px;
-        }
+        flex-direction: column;
+        gap: 16px;
 
         .box-username{
-            margin-bottom: 32px;
             display: flex;
             flex-direction: column;
-    }
+
+            input{
+                width: 248px;
+                height: 32px;
+            }
+        }
 
         .box-email{
             display: flex;
             flex-direction: column;
-            margin-bottom: 32px;
+            
+            input{
+                width: 248px;
+                height: 32px;
+            }
         }
 
         .box-senha{
-            gap: 8px;
             display: flex;
-            margin-bottom: 8px;
-        }
+            gap: 0.5rem;
 
-        .box-senha div{
-            display: flex;
-            flex-direction: column;
+            input{
+                width: 120px;
+                height: 32px;
+                
+            }
         }
 
         .box-check{
             display: flex;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .box-username input{
-            width: 372px;
-        }
-
-        .box-email input{
-            width: 372px;
-        }
-        .box-senha input{
-            width: 182px;
+            gap: 0.5rem;
         }
 
         button{
-            width: 377px;
+            width: 248px;
+            height: 32px;
+            display: flex;
+            font-family: Poppins;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 16px; 
         }
-        
-        .section{
-            margin: 80px 92px 189px;
-        }
-    } 
+    }
 
-    @media (min-width: 768px) and (max-width: 1024) {
-        min-height: 100vh;
-        margin: 0 0 0 523px;
 }
 
-    @media (min-width: 1025px){
-        min-height: 100vh;
-        margin: 0 0 0 1037px;
-    
-}
+    //---------------------------------------------------------------------------//
 
+    @media (min-width: 470px) and (max-width: 600px){
+        .container{
+            max-width: 600px;
 
-    
+            img{
+                width: 114px;
+                height: 43px;
+            }
+
+            .box-title{
+                margin: 3rem 0;
+            }
+
+            form{
+                gap: 32px;
+
+                .box-username input{
+                    width: 372px;
+                    height: 32px;
+                }
+                .box-email input{
+                    width: 372px;
+                    height: 32px;
+                }
+                .box-senha input{
+                    width: 182px;
+                    height: 32px;
+                }
+                button{
+                    width: 377px;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 601px) and (max-width: 1023px) {
+        .container{
+            max-width: 1023px;
+
+            img{
+                width: 114px;
+                height: 43px;
+            }
+
+            .box-title{
+                margin: 3rem 0;
+            }
+
+            form{
+                gap: 32px;
+
+                .box-username input{
+                    width: 372px;
+                    height: 32px;
+                }
+                .box-email input{
+                    width: 372px;
+                    height: 32px;
+                }
+                .box-senha input{
+                    width: 182px;
+                    height: 32px;
+                }
+                .box-senha div{
+                    display: flex;
+                    flex-direction: column;
+                }
+                button{
+                    width: 377px;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1024px){
+        .container{
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            float: right;
+            position: absolute;
+            right: 0;
+            
+
+            img{
+                width: 186px;
+                height: 70px;
+            }
+
+            .box-title{
+                margin: 5rem 0;
+            }
+
+            form{
+                gap: 32px;
+
+                .box-username input{
+                    width: 300px;
+                    height: 32px;
+                }
+                .box-email input{
+                    width: 300px;
+                    height: 32px;
+                }
+                .box-senha input{
+                    width: 148px;
+                    height: 32px;
+                }
+                .box-senha div{
+                    display: flex;
+                    flex-direction: column;
+                }
+                button{
+                    width: 300px;
+                }
+            }
+        }
+    }
 `
