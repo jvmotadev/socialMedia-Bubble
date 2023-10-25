@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import styled from "styled-components"
 
-const Input = ({ placeholder, name, type, value, onChange, hasError, IsValid, required, width, height }) => {
+const Input = ({ placeholder, name, type, value, onChange, hasError, IsValid, required, width, height, change }) => {
     const variantes = {
         error: ``,
         valid: ``
@@ -12,7 +12,7 @@ const Input = ({ placeholder, name, type, value, onChange, hasError, IsValid, re
             name={name}
             type={type}
             value={value}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={change}
             style={{
                 border: IsValid ? variantes.valid : hasError ? variantes.error : '',
             }}
