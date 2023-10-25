@@ -23,6 +23,7 @@ const Posts = ({ nomeUsuario, date, conteudo }) => {
                     <img src="./curtidas.svg" alt="" />
                     <img width='22.px' src="./icons8-lixeira.svg" />
                 </div>
+                <img className="add" src="../../../../../public/adicionar.svg" alt="" />
             </div>
         </StylesPosts>
     )
@@ -72,6 +73,7 @@ const StylesPosts = styled.div`
     .conteudo{
         display: flex;
         justify-content: center;
+        width: 100%;
     }
 
     .p{
@@ -79,16 +81,58 @@ const StylesPosts = styled.div`
         justify-content: center;
         width: 248px;
         height: 127px;
+        color: ${(props) => props.theme.colors.black.b100};
+        font-family: Poppins;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px; /* 133.333% */
     }
 
     .icones{
         display: flex;
         padding: 0 30px;
         justify-content: space-between;
+        cursor: pointer;
+    }
+
+    .add{
+        margin-left: 90%;
+        cursor: pointer;
     }
 
     .foto{
         width: 50px;
         border-radius: 100px;
+    }
+
+
+    @media (min-width: 400px) and (max-width: 600px){
+        .conteiner{
+            
+        }
+    }
+
+    @media (min-width: 601px) and (max-width: 1023px){
+        .conteiner{
+            width: 468px;
+            height: 280px;
+        }
+
+        
+    }
+
+    @media (min-width: 1024px) and (max-width:1300px){
+        .conteiner{
+            width: 560px;
+            height: 280px;
+        }    
+    }
+
+    @media (min-width: 1301px){
+        .conteiner{
+            width: 780px;
+            height: 280px;
+        }
     }
 `
