@@ -107,6 +107,16 @@ align-items: center;
   }
 }
 
+.erro {
+  border-radius: 4px;
+  color: white !important;
+  font-size: 1.2rem !important; 
+  place-self: center;
+  background: red;
+  padding: 0.5rem;
+  text-shadow: 1px 1px 6px red;
+}
+
 @media (min-width: 768px) and (max-width: 1023px) {
 
   .container {

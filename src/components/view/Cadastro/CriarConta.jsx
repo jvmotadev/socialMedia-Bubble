@@ -1,69 +1,131 @@
-import React from 'react'
 import styled from 'styled-components'
 import Input from '../../common/Input/Input'
 import Button from '../../common/Button/Button'
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { postUsuario } from '../../../services/usuarioApi';
 
 const CriarConta = () => {
-    return (
-        <StyleBannerCadastro>
-            <div className='container'>
-                <img src="./logo-bubble-w.svg" alt="" />
-                <div className='box-title'>
-                    <h1 className='font-1-xl'>Criar Conta</h1>
-                    <p className='font-1-xxs'>Crie agora a sua bolha!</p>
-                </div>
-                <form action="" className='form'>
-                    <div className='box-username'>
-                        <span className='font-1-xxs'>username</span>
-                        <Input className='box-input'
-                            name={"username"}
-                            type={"text"}
-                            required={"required"}
-                            placeholder={"joa1zin"}
-                        />
-                    </div>
-                    <div className='box-email'>
-                        <span className='font-1-xxs'>email</span>
-                        <Input className='box-input'
-                            name={"email"}
-                            type={"email"}
-                            required={"required"}
-                            placeholder={"joao@email.com"}
-                        />
-                    </div>
-                    <div className='box-senha'>
-                        <div>
-                            <span className='font-1-xxs'>senha</span>
-                                <Input 
-                                    name={"senha"}
-                                    type={"password"}
-                                    required={"required"}
-                                    placeholder={"•••••••••••••••••••"}
-                                />
-                        </div>
-                        <div>
-                            <span className='font-1-xxs'>confirmar-senha</span>
-                                <Input 
-                                    name={"confirmar-senha"}
-                                    type={"password"}
-                                    required={"required"}
-                                    placeholder={"•••••••••••••••••••"}
-                                />
-                        </div>
-                        </div>
-                        <div className='box-check'>
-                            <input type="checkbox" />
-                            <span className='font-1-xxs'>Aceito os  <a href="">termos e condições</a></span>
-                        </div>
-                        <Button
-                            type={"submit"}
-                            texto={"CADASTRE-SE"}
-                            variant={'buttonForms'}
-                            />
-                    </form>
-                </div>
-        </StyleBannerCadastro>
-    )
+	const navigate = useNavigate()
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+  const [confirmarSenha, setConfirmarSenha] = useState('')
+  const [erro, setErro] = useState('')
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (senha !== confirmarSenha) {
+      setErro('As senhas não coincidem');
+      return;
+    }
+
+    try {
+      const resposta = await criarConta(username, email, senha);
+      
+      if (resposta.success) {
+        setSuccessMessage('Conta criada com sucesso. Redirecionando para a página de login...');
+				setTimeout(() => {
+					navigate('/login')
+				}, 2000)
+      } else {
+        setErro(resposta.message);
+      }
+    } catch (error) {
+      console.error('Erro ao criar conta:', error);
+      setErro('Erro inesperado ao criar a conta.');
+    }
+  }
+
+  const criarConta = async (username, email, senha) => {
+    try {
+      const body = {
+        username,
+        email,
+        senha,
+      };
+      
+      const resposta = await postUsuario(body, senha);
+
+      return resposta;
+    } catch (error) {
+      console.error('Erro ao criar conta:', error);
+      throw new Error('Erro inesperado ao criar a conta.');
+    }
+  }
+
+  return (
+    <StyleBannerCadastro>
+      <div className='container'>
+        <img src="./logo-bubble-w.svg" alt="" />
+        <div className='box-title'>
+          <h1 className='font-1-xl'>Criar Conta</h1>
+          <p className='font-1-xxs'>Crie agora a sua bolha!</p>
+        </div>
+        <form action="" className='form' onSubmit={handleSubmit}>
+          <div className='box-username'>
+            <span className='font-1-xxs'>username</span>
+            <Input
+              name={"username"}
+              type={"text"}
+              required={"required"}
+              placeholder={"joa1zin"}
+              value={username}
+              change={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className='box-email'>
+            <span className='font-1-xxs'>email</span>
+            <Input
+              name={"email"}
+              type={"email"}
+              required={"required"}
+              placeholder={"joao@email.com"}
+              value={email}
+              change={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className='box-senha'>
+            <div>
+              <span className='font-1-xxs'>senha</span>
+              <Input
+                name={"senha"}
+                type={"password"}
+                required={"required"}
+                placeholder={"•••••••••••••••••••"}
+                value={senha}
+                change={(e) => setSenha(e.target.value)}
+              />
+            </div>
+            <div>
+              <span className='font-1-xxs'>confirmar-senha</span>
+              <Input
+                name={"confirmar-senha"}
+                type={"password"}
+                required={"required"}
+                placeholder={"•••••••••••••••••••"}
+                value={confirmarSenha}
+                change={(e) => setConfirmarSenha(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className='box-check'>
+            <input type="checkbox" />
+            <span className='font-1-xxs'>Aceito os  <a href="">termos e condições</a></span>
+          </div>
+          {erro && <p className="error-message">{erro}</p>}
+          {successMessage && <p className="success-message">{successMessage}</p>}
+          <Button
+            type={"submit"}
+            texto={"CADASTRE-SE"}
+            variant={'buttonForms'}
+          />
+        </form>
+      </div>
+    </StyleBannerCadastro>
+  );
 }
 
 export default CriarConta
