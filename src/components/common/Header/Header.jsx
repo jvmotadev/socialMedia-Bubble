@@ -46,7 +46,7 @@ background: ${(props) => props.theme.colors.primary.p1};
 
     nav{
         display: flex;
-        gap: 8px;
+        gap: 32px;
         align-items: center;
         z-index: 3;
 
@@ -105,9 +105,9 @@ background: ${(props) => props.theme.colors.primary.p1};
                     font-size: 24px;
                 }
                 button{
-                    font-size: 18px;
-                    width: 176px;
-                    height: 40px;
+                    font-size: 24px;
+                    width: 200px;
+                    height: 50px;
                     }
                 }
         }
@@ -127,9 +127,9 @@ background: ${(props) => props.theme.colors.primary.p1};
                 }
 
                 button{
-                    font-size: 32px;
-                    width: 323px;
-                    height: 74px;
+                    font-size: 24px;
+                    width: 200px;
+                    height: 50px;
                     }
                 }
         }

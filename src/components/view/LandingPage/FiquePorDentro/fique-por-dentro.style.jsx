@@ -19,6 +19,12 @@ export const FiquePorDentroStyle = styled.div`
     margin: 0 auto;
   }
 
+  button {
+    text-transform: uppercase;
+    font: 600 1.5rem "Poppins", sans-serif;
+    padding: 0.5rem 6rem;
+  }
+
   @media (min-width: 400px) and (max-width: 768px) {
     .container {
       padding: 0 20px;
