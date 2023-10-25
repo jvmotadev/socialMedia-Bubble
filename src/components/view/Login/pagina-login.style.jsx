@@ -15,11 +15,20 @@ align-items: center;
   background: rgba(0, 0, 0, 0.92);
   width: 376px;
   height: 507px;
-  padding: 20px 64px 83px 64px;
+  padding: 20px 64px 140px 64px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+  }
 
   input{
     border-style: none;
@@ -54,10 +63,10 @@ align-items: center;
     font-weight: 600;
     line-height: 40px;
     text-align: left;
+    margin-bottom: 5px;
   }
 
   p {
-    margin-bottom: 20px;
     color: var(--c05, #B2B2B2);
     font-family: Poppins;
     font-size: 12px;
@@ -67,8 +76,9 @@ align-items: center;
   }
 
   label {
-    margin-top: 20px;
-    margin-bottom: 5px;
+    align-self: flex-start;
+    text-align: left;
+    margin-top: 3%;
     font-family: 'Poppins';
     font-size: 18px;
     line-height: 24px;
@@ -79,7 +89,6 @@ align-items: center;
 
   .margem-botao{
     margin-top: 17px;
-    margin-bottom: 17px;
     width: 100%;
     cursor: pointer;
   }
@@ -121,8 +130,8 @@ align-items: center;
 
   .container {
     width: 528px;
-    height: 692px;
-    padding: 20px 78px 175px 78px;
+    height: 570px;
+    padding: 20px 78px 180px 78px;
   }
 
   .logo {
@@ -142,7 +151,7 @@ align-items: center;
   .container {
     width: 528px;
     height: 100vh;
-    padding: 80px 105px 356px 105px;
+    padding: 80px 105px 160px 105px;
   }
 
   .logo {
@@ -167,7 +176,7 @@ align-items: center;
   .container {
     width: 583px;
     height: 100vh;
-    padding: 80px 106px 288px 106px;
+    padding: 80px 106px 160px 106px;
   }
 
   .logo {
