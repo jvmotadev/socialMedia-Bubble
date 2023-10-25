@@ -8,8 +8,8 @@ const Button = ({ texto, variant, width, onClick, fontSize, height, fontWeight }
             {variant == 'primary' && <ButtonCadastrarPrimario onClick={onClick} width={width} fontSize={fontSize} height={height} fontWeight={fontWeight}>{texto}</ButtonCadastrarPrimario>}
             {variant == 'secondary' && <ButtonCadastrarSecundario onClick={onClick} width={width} fontSize={fontSize} height={height} fontWeight={fontWeight}>{texto}</ButtonCadastrarSecundario>}
             {variant == 'buttonForms' && <ButtonForms onClick={onClick} width={width} fontSize={fontSize} height={height} fontWeight={fontWeight}>{texto}</ButtonForms>}
-            {variant == 'buttonPostarOrdenar' && <ButtonPostarOrdenarDescendente onClick={onClick} width={width} fontSize={fontSize} height={height} fontWeight={fontWeight}>{texto}</ButtonPostarOrdenarDescendente>}
-            {variant == 'buttonAscendente' && <ButtonOrdenarAscendente onClick={onClick} width={width} fontSize={fontSize} height={height} fontWeight={fontWeight}>{texto}</ButtonOrdenarAscendente>}
+            {variant == 'buttonPostarOrdenar' && <ButtonPostarOrdenarDescendente onClick={onClick} fontSize={fontSize} fontWeight={fontWeight}>{texto}</ButtonPostarOrdenarDescendente>}
+            {variant == 'buttonAscendente' && <ButtonOrdenarAscendente onClick={onClick} fontSize={fontSize} fontWeight={fontWeight}>{texto}</ButtonOrdenarAscendente>}
         </>
     )
 }
@@ -59,6 +59,11 @@ const ButtonPostarOrdenarDescendente = styled(StylesButton)`
     height: ${(props) => props.height};
     font-weight: ${(props) => props.fontWeight};
     font-size: ${(props) => props.fontSize};
+    font-family: Roboto;
+    line-height: 12px; /* 120% */
+    height: 10px;
+    
+
 `
 const ButtonOrdenarAscendente = styled(StylesButton)`
     border-radius: 24px;
@@ -69,6 +74,9 @@ const ButtonOrdenarAscendente = styled(StylesButton)`
     height: ${(props) => props.height};
     font-weight: ${(props) => props.fontWeight};
     font-size: ${(props) => props.fontSize};
+    font-family: Roboto;
+    line-height: 12px; /* 120% */
+    height: 7px;
 `
 
 
