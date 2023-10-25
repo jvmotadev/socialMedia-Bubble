@@ -1,11 +1,13 @@
 import styled from "styled-components"
 import UsuarioHeader from "../../components/view/Feed/UsuarioHeader"
+import OrdenarPosts from "../../components/view/Feed/OrdenarPosts/OrdenarPosts"
 
 const Feed = () => {
     return (
         <StyleFeed>
             <UsuarioHeader
                 nomeUsuario='João Motta' />
+            <OrdenarPosts />
         </StyleFeed>
     )
 }
