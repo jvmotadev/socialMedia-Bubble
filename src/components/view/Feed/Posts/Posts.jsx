@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components"
 
-const Posts = ({ nomeUsuario, date, conteudo }) => {
+const Posts = ({ nomeUsuario, date, conteudo, deletePost, curtirPost }) => {
     return (
         <StylesPosts>
             <div className="conteiner">
                 <div className="usuario">
                     <img
                         className="foto"
-                        src="../../../../public/foto-ana-luiza.png"
+                        src="https://www.pngkey.com/png/full/121-1219231_user-default-profile.png"
                         alt="foto usuario"
                     />
                     <div className="dados-usuario">
@@ -20,10 +20,9 @@ const Posts = ({ nomeUsuario, date, conteudo }) => {
                     <p className="p">{conteudo}</p>
                 </div>
                 <div className="icones">
-                    <img src="./curtidas.svg" alt="" />
-                    <img width='22.px' src="./icons8-lixeira.svg" />
+                    <button onClick={curtirPost}><img src="./curtidas.svg" alt="" /></button>
+                    <button onClick={deletePost}><img width='22.px' src="./icons8-lixeira.svg" /></button>
                 </div>
-                <img className="add" src="../../../../../public/adicionar.svg" alt="" />
             </div>
         </StylesPosts>
     )

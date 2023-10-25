@@ -1,96 +1,77 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-import { getPosts, postPost, deletePost } from '../../services/postApi';
-import styled from "styled-components"
-import UsuarioHeader from "../../components/view/Feed/UsuarioHeader/UsuarioHeader"
-import Posts from "../../components/view/Feed/Posts/Posts"
-
-
+import { useState, useEffect } from 'react';
+import { deletePost, getPosts, postPost } from '../../services/postApi';
+import styled from 'styled-components';
+import Posts from '../../components/view/Feed/Posts/Posts';
+import UsuarioHeader from '../../components/view/Feed/UsuarioHeader/UsuarioHeader';
+import Modal from '../../components/common/Modal/Modal';
 
 const Feed = () => {
-    // const [posts, setPosts] = useState([]);
-    // const [conteudo, setConteudo] = useState('');
-    // const [curtidas, setCurtidas] = useState('0');
+  const [posts, setPosts] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false)
 
-    // async function handleBuscaPost() {
-    //     const resposta = await getPosts();
-    //     setPosts(resposta);
-    // }
+  async function handleBuscaPost() {
+    const resposta = await getPosts();
+    setPosts(resposta);
+  }
 
-    // async function handlePostarPost(idUsuario) {
-    //     const body = {
-    //         conteudo,
-    //         curtidas,
-    //         idUsuario,
-    //     };
 
-    //     const resposta = await postPost(body);
+  async function handleExcluirPost(idPost) {
+    const resposta = await deletePost(idPost);
 
-    //     if (resposta.success) {
-    //         handleBuscaPost();
-    //     } else {
-    //         console.log('erro ao postar transação');
-    //     }
-    // }
+    if (resposta.success) {
+      handleBuscaPost();
+    } else {
+      console.log('erro ao excluir transação');
+    }
+  }
 
-    // async function handleExcluirPost(idPost) {
-    //     const resposta = await deletePost(idPost)
+  useEffect(() => {
+    async function atualizarPost() {
+      const resposta = await getPosts();
+      setPosts(resposta);
+    }
 
-    //     if (resposta.success) {
-    //         handleBuscaPost();
-    //     } else {
-    //         console.log('erro ao postar transação');
-    //     }
-    // }
+    atualizarPost();
+  }, []);
 
-    return (
-        <>
-            <StyleFeed>
-                <UsuarioHeader
-                    nomeUsuario='João Motta' />
-                <Posts
-                    nomeUsuario="João Motta"
-                    date='20-12-2022'
-                    conteudo='Consegui um projetor pra passar filmes de terror trash durante a festinha de halloween aqui em casa'
-                />
-            </StyleFeed>
-            {/* <button
-        onClick={() => {
-          handleBuscaPost();
-          console.log(posts);
-        }}
-      >
-        Carregue Feed
-      </button>
-      <form style={{ margin: '50px' }}>
-        <input type="text" placeholder="conteudo" onChange={(e) => setConteudo(e.target.value)}/>
-        <button onClick={(e) => {
-          e.preventDefault()
-          handlePostarPost('65385573934953c4b8bb049c')}
-          }>enviar</button>
-      </form>
-
-      {posts.map((post) => {
-        return (
-          <li key={post.id}>
-            <p>{post.conteudo}</p>
-            <p>{post.curtidas}</p>
-            <button onClick={() => {
-              console.log(post.id)
-              handleExcluirPost(post.id)}}>excluir</button>
-          </li>
-        );
-      })} */}
-        </>
-    );
+  return (
+    <>
+      <StyleFeed>
+        <UsuarioHeader nomeUsuario="João Motta" />
+        {posts.map((post) => (
+          <div key={post.id}>
+            <Posts
+              date={post.date}
+              conteudo={post.conteudo}
+              addPost={() => console.log('adicionar post')}
+              deletePost={() => handleExcluirPost(post.id)}
+              // curtirPost
+            />
+          </div>
+        ))}
+        <button onClick={() => setModalOpen(!modalOpen)}>
+          <img
+            className="add"
+            src="../../../../../public/adicionar.svg"
+            alt=""
+          />
+        </button>
+        {
+          modalOpen && <Modal />
+        }
+      </StyleFeed>
+    </>
+  );
 };
 
 export default Feed;
 
 const StyleFeed = styled.main`
-    display: flex;
-    flex-direction: column;
-    background-color: ${(props) => props.theme.colors.white.w50};
-    min-height: 100vh;
-    gap: 3em;
-`
+  display: flex;
+  flex-direction: column;
+  background-color: ${(props) => props.theme.colors.white.w50};
+  min-height: 100vh;
+  gap: 3em;
+`;

@@ -1,41 +1,63 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import styled from "styled-components"
+import styled from "styled-components";
+import { useState } from "react";
+import { postPost } from "../../../services/postApi";
 
+const Modal = ({ open, nomeUsuario, fechaModal, onClick }) => {
+  const [conteudo, setConteudo] = useState("");
+  const [curtidas, setCurtidas] = useState('0');
 
-const Modal = ({ open, nomeUsuario, fechaModal, conteudo }) => {
-    const handleClose = (e) => {
-        e.target.id === 'modal' && fechaModal()
+  const handleClose = (e) => {
+    e.target.id === 'modal' && fechaModal()
+  }
+
+  async function handlePostarPost(idUsuario) {
+    const body = {
+      conteudo,
+      curtidas,
+      idUsuario,
+    };
+
+    const resposta = await postPost(body);
+
+    if (resposta.success) {
+        console.log('Sucesso ao postar');
+    } else {
+      console.log('Erro ao postar');
     }
-    return (
+  }
 
-        <StylesModal>
-            <div className="conteiner">
-                <div className="usuario">
-                    <img
-                        className="foto"
-                        src="../../../../public/foto-ana-luiza.png"
-                        alt="foto usuario"
-                    />
-                    <div className="dados-usuario">
-                        <h1 className="nomeUsuario">{nomeUsuario}</h1>
-                    </div>
-                    <div className="close">
-                        <img src="../../../../public/icons8-close.svg" alt="icone close modal" />
-                    </div>
-                </div>
-                <div className="conteudo">
-                    <textarea
-                        className="textarea"
-                        placeholder="compartilhe sua bolha de pensamento...">
-                    </textarea>
-                </div>
-                <button className="btn">Postar</button>
-            </div>
-        </StylesModal>
-
-
-    )
+  return (
+    <StylesModal>
+      <div className="conteiner">
+        <div className="usuario">
+          <img
+            className="foto"
+            src="../../../../public/foto-ana-luiza.png"
+            alt="foto usuario"
+          />
+          <div className="dados-usuario">
+            <h1 className="nomeUsuario">{nomeUsuario}</h1>
+          </div>
+          <div className="close">
+            <img src="../../../../public/icons8-close.svg" alt="icone close modal" />
+          </div>
+        </div>
+        <div className="conteudo">
+          <textarea
+            className="textarea"
+            placeholder="compartilhe sua bolha de pensamento..."
+            value={conteudo}
+            onChange={(e) => setConteudo(e.target.value)}
+          ></textarea>
+        </div>
+        <button className="btn" onClick={() => {
+            handlePostarPost('653982b626db01d6e1711f79')
+        }}>Postar</button>
+      </div>
+    </StylesModal>
+  )
 }
 
 const StylesModal = styled.div`
