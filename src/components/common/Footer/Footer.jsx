@@ -13,8 +13,9 @@ const Footer = () => {
           <nav>
             <ul className="menu font-1-xs">
               <li><Link to='/'>Home</Link></li>
-              <li><Link to='/'>Login</Link></li>
-              <li><Link to='/'></Link>Cadastre-se</li>
+              <li><Link to='/login'>Login</Link></li>
+              <li><Link to='/cadastro'>Cadastre-se</Link></li>
+
             </ul>
           </nav>
         </div>
