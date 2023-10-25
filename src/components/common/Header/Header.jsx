@@ -2,64 +2,138 @@
 import styled from "styled-components"
 import logo from '/logo-bubble-b.svg'
 import Button from "../Button/Button"
-// import { Link } from 'react-router-dom'
-const Header = ({ widthLogo, heigthLogo, padding }) => {
+import { Link } from 'react-router-dom'
+
+const Header = () => {
     return (
-        <StylesHeader
-            // fontSize={fontSize}
-            padding={padding}
-        >
-            <img src={logo} alt=""
-                width={widthLogo}
-                height={heigthLogo}
-            />
-            <div id="links">
-                <a id="login">LOGIN</a>
-                <Button
-                    variant='primary'
-                    texto='CADASTRE-SE'
-                    fontSize='30px'
-                    fontWeight='600'
-                    width='344px'
-                    height='74px'
-                />
+        <StylesHeader>
+            <div className="container">
+                <img src={logo} alt="" />
+                <nav>
+                    <Link to='/login'>
+                        <a>LOGIN</a>
+                    </Link>
+                    <Link to='/cadastro'>
+                        <Button
+                            variant='primary'
+                            texto='CADASTRE-SE'        
+                        />
+                    </Link>
+                </nav>
             </div>
-
-
-
         </StylesHeader>
     )
 }
 
 const StylesHeader = styled.header`
-    font-size: ${(props) => props.fontSize};
+max-width: 100vw;
+background: ${(props) => props.theme.colors.primary.p1};
+
+.container{
     display: flex;
-    justify-content: space-between;
-    padding: ${(props) => props.padding};
+    align-items: center;
+    justify-content: space-around;
+    z-index: 3;
+    margin-top: 2rem;
+    
 
-    h1{
+    img{
+        width: 119px;
+        height: 45px;
+        z-index: 3;
+    }
+    }
+
+    nav{
         display: flex;
+        gap: 8px;
         align-items: center;
+        z-index: 3;
+
+        a{
+            font-family: Roboto;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 36px;
+        }
+
+        button{
+            font-family: Poppins;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 16px;
+            width: 121px;
+            height: 36px;
+            
+        }
+    }
+    
+
+    @media (min-width: 400px) and (max-width: 768px) {
+
+    .container{ 
+        img{
+            width: 149px;
+            height: 56px;
+        }
+
+        nav{
+            a{
+                font-size: 14px;
+            }
+
+            button{
+                font-size: 12px;
+                width: 121px;
+                height: 36px;
+                }
+            }
+        }
     }
 
-    #links{
-        display: flex;
-        gap:32px;
-        align-items: center;
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .container{ 
+            img{
+                width: 186px;
+                height: 70px;
+            }
+            nav{
+                a{
+                    font-size: 24px;
+                }
+                button{
+                    font-size: 18px;
+                    width: 176px;
+                    height: 40px;
+                    }
+                }
+        }
     }
 
-    #login{
-    color: ${(props) => props.theme.colors.black.b100};
-    text-align: center;
-    font-family: Roboto;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 36px;
-    cursor: pointer; /* 150% */
-    }
+    @media (min-width: 1025px) {
 
+        .container{ 
+            img{
+                width: 233px;
+                height: 88px;
+            }
+
+            nav{
+                a{
+                    font-size: 24px;
+                }
+
+                button{
+                    font-size: 32px;
+                    width: 323px;
+                    height: 74px;
+                    }
+                }
+        }
+    }
 `
-
 
 export default Header

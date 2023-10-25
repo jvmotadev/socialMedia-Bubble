@@ -17,7 +17,6 @@ const Button = ({ texto, variant, width, onClick, fontSize, height, fontWeight }
 const StylesButton = styled.button`
     width: auto;
     display: inline-flex;
-    padding: 17px 60px;
     justify-content: center;
     align-items: center;
     gap: 10px;

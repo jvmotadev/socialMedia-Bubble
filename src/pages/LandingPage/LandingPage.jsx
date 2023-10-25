@@ -1,3 +1,4 @@
+import Header from "../../components/common/Header/Header"
 import Footer from "../../components/common/Footer/Footer"
 import Ferramentas from "../../components/view/LandingPage/Ferramentas/Ferramentas"
 import FiquePorDentro from "../../components/view/LandingPage/FiquePorDentro/FiquePorDentro"
@@ -8,7 +9,7 @@ import { LandingPageStyle } from "./landing-page.style"
 const LandingPage = () => {
   return (
       <LandingPageStyle>
-        {/* header */}
+        <Header/>
         <PaginaInicial />
         <PorqueBolha />
         <Ferramentas />
