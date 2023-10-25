@@ -2,27 +2,27 @@
 import styled from "styled-components";
 
 const UsuarioHeader = ({ nomeUsuario }) => {
-    return (
-        <StyleHeaderFeed>
-            <div className="conteiner">
-                <div className="box-1">
-                    <img
-                        className="foto"
-                        src="../../../../public/foto-ana-luiza.png"
-                        alt="foto usuario"
-                    />
-                    <p className="nomeUsuario">{nomeUsuario}</p>
-                </div>
-                <div className="box-2">
-                    <img
-                        className="icone"
-                        src="./menu-hamburguer-grande.svg"
-                        alt="icone hamburguer"
-                    />
-                </div>
-            </div>
-        </StyleHeaderFeed>
-    );
+  return (
+    <StyleHeaderFeed>
+      <div className="conteiner">
+        <div className="box-1">
+          <img
+            className="foto"
+            src="../../../../public/foto-ana-luiza.png"
+            alt="foto usuario"
+          />
+          <p className="nomeUsuario">{nomeUsuario}</p>
+        </div>
+        <div className="box-2">
+          <img
+            className="icone"
+            src="./menu-hamburguer-grande.svg"
+            alt="icone hamburguer"
+          />
+        </div>
+      </div>
+    </StyleHeaderFeed>
+  );
 };
 
 export default UsuarioHeader;
@@ -54,6 +54,10 @@ const StyleHeaderFeed = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: 40px; /* 133.333% */
+  }
+
+  .icone{
+    cursor: pointer;
   }
 
   @media (min-width: 400px) and (max-width: 600px) {
