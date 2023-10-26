@@ -1,9 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Input from '../../common/Input/Input'
 import Button from '../../common/Button/Button'
+import { searchEmail } from '../../../services/usuarioApi';
+import { useNavigate } from 'react-router-dom';
 
 const Recuperacao = () => {
+    const[email, setEmail] = useState('')
+    const[success, setSuccess] = useState('')   
+    const[error, setError] = useState('')
+    const navigate = useNavigate()
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        try{
+            const resposta = await searchEmail(email);
+            if(resposta.id){
+                setSuccess('Email para recuperação de senha enviado.')
+                setTimeout(() => {
+                    navigate('/login')
+                }, 2000)
+            }else{
+                setError('Email não encontrado.');
+                setTimeout(() => {
+                    setError('')
+                }, 2000)
+            }
+        } catch (error){
+            setError('Erro inesperado.')
+            setTimeout(() => {
+                setError('')
+            }, 2000)
+        }
+    }
+
     return (
         <StyleBannerRecuperacao>
             <div className='container'>
@@ -12,16 +43,19 @@ const Recuperacao = () => {
                     <h1 className='font-1-xl'>Recuperar Senha</h1>
                     <p className='font-1-xxs'>Faça login e entre na sua Bubble!</p>
                 </div>
-                <form action="" className='form'>
+                <form onSubmit={handleSubmit} className='form'>
                     <div className='box-email'>
                         <span className='font-1-xxs'>email</span>
                         <Input className='box-input'
-                            name={"email"}
-                            type={"email"}
+                            value={email}
+                            type="email"
                             required={"required"}
-                            placeholder={"joao@email.com"}
+                            placeholder="joao@email.com"
+                            change={(e) => setEmail(e.target.value)}
                         />
                     </div>
+                    {success && <p className="success font-2-s">{success}</p>}
+                    {error && <p className="error font-2-s">{error}</p>}
                         <Button
                             type={"submit"}
                             texto={"ENVIAR"}
@@ -102,6 +136,25 @@ input{
             line-height: 16px; 
             margin-bottom: 4rem;
         }
+    }
+
+    .error,
+    .success{
+        border-radius: 4px;
+        font-size: 1.2rem !important; 
+        place-self: center;
+        padding: 0.5rem;
+        text-shadow: 1px 1px 6px red;
+    }
+
+    .error{
+        background: red;
+        color: white !important;
+    }
+
+    .success {
+        background: green;
+        color: white !important;
     }
 
 }

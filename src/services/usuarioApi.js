@@ -39,3 +39,8 @@ export const postUsuario = async (body, senha) => {
   const resposta = await api.post('/usuarios', body, config)
   return resposta.data
 }
+
+export const searchEmail = async(email) => {
+  const resposta = await api.get(`/usuario/${email}`);
+  return resposta.data
+}
