@@ -16,6 +16,12 @@ export const GlobalStyle = createGlobalStyle`
 		list-style: none;
 	}
 
+	button {
+		background: transparent;
+		border: none;
+		cursor: pointer;
+	}
+
 	//classes para a fonte Poppins
 	.font-1-xxs {
 			font: 400 0.75rem "Poppins", sans-serif;
