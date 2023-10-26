@@ -17,7 +17,7 @@ const PaginaLogin = () => {
     const resposta = await loginUsuario(email, senha);
 
     if (resposta.success) {
-      navigate('/cadastro')
+      navigate('/feed')
     } else {
       setErro(resposta.message)
     }

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { postPost } from "../../../services/postApi";
 
-const Modal = ({ open, nomeUsuario, fechaModal, onClick }) => {
+const Modal = ({ nomeUsuario, fechaModal, handleBuscaPost, openModal }) => {
   const [conteudo, setConteudo] = useState("");
   const [curtidas, setCurtidas] = useState('0');
 
@@ -21,11 +21,14 @@ const Modal = ({ open, nomeUsuario, fechaModal, onClick }) => {
 
     const resposta = await postPost(body);
 
+    handleBuscaPost()
+    
     if (resposta.success) {
         console.log('Sucesso ao postar');
     } else {
       console.log('Erro ao postar');
     }
+    openModal(false)
   }
 
   return (
@@ -41,7 +44,7 @@ const Modal = ({ open, nomeUsuario, fechaModal, onClick }) => {
             <h1 className="nomeUsuario">{nomeUsuario}</h1>
           </div>
           <div className="close">
-            <img src="../../../../public/icons8-close.svg" alt="icone close modal" />
+            <button onClick={ () => openModal(false)}><img src="../../../../public/icons8-close.svg" alt="icone close modal" /></button>
           </div>
         </div>
         <div className="conteudo">
@@ -63,11 +66,12 @@ const Modal = ({ open, nomeUsuario, fechaModal, onClick }) => {
 const StylesModal = styled.div`
     display: flex;
     justify-content: center;
+    margin-top: 300px;
     .conteiner{
         border-radius: 24px;
         background: ${(props) => props.theme.colors.primary.p1};
         width: 376px;
-        height: 280px;
+        height: 380px;
     }
 
     .usuario{
@@ -136,11 +140,11 @@ const StylesModal = styled.div`
     }
 
     .btn{
-        width: 60px;
+        width: 120px;
+        padding: 16px 32px;
         border-radius: 24px;
         background: ${(props) => props.theme.colors.primary.p2};
-        margin-left: 70%;
-        cursor: pointer;
+        margin-left: 60%;
         margin-top: 5px;
     }
 
@@ -158,30 +162,34 @@ const StylesModal = styled.div`
     @media (min-width: 601px) and (max-width: 1023px){
         .conteiner{
             width: 468px;
-            height: 280px;
+            height: 380px;
         }
-
-        
+        .btn {
+          margin-left: 65%;
+        }
     }
 
     @media (min-width: 1024px) and (max-width:1300px){
         .conteiner{
             width: 560px;
-            height: 280px;
+            height: 380px;
         }
         .close{
             margin-left: 70%;
-        }    
+        } 
     }
 
     @media (min-width: 1301px){
         .conteiner{
             width: 780px;
-            height: 280px;
+            height: 380px;
         }
         .close{
             margin-left: 80%;
-        }  
+        }
+        .btn {
+          margin-left: 75%;
+        }
     }
 `
 
