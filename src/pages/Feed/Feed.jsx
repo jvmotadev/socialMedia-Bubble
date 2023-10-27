@@ -27,7 +27,7 @@ const Feed = () => {
       setPosts(resposta);
     }
     atualizarPost();
-  }, []);
+  }, [posts]);
 
   return (
     <>
@@ -74,12 +74,13 @@ export default Feed;
 const StyleFeed = styled.main`
   display: flex;
   flex-direction: column;
-  background-color: ${(props) => props.theme.colors.white.w50};
+  background-color: ${(props) => props.theme.colors.black.b200};
   min-height: 100vh;
   gap: 3em;
 
   h1 {
     text-align: center;
+    color: ${(props) => props.theme.colors.white.w50};
   }
 
   .add {

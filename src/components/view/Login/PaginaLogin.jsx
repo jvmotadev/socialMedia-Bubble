@@ -9,6 +9,7 @@ const PaginaLogin = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
@@ -17,9 +18,15 @@ const PaginaLogin = () => {
     const resposta = await loginUsuario(email, senha);
 
     if (resposta.success) {
-      navigate('/feed')
+      setSuccessMessage('Login Realizado com sucesso. Redirecionando para feed...');
+      setTimeout(() => {
+        navigate('/feed')
+      }, 2000)
     } else {
       setErro(resposta.message)
+      setTimeout(() => {
+        setErro('')
+      }, 2000)
     }
     console.log(resposta)
   }
@@ -67,7 +74,8 @@ const PaginaLogin = () => {
             />
           </div>
         </form>
-        {erro && <p className="erro font-2-s">{erro}</p>}
+        {successMessage && <p className="success-message font-2-s">{successMessage}</p>}
+        {erro && <p className="error-message font-2-s">{erro}</p>}
         <p className="esqueceu-senha">
           Esqueceu sua senha? Clique <Link to="/redefinir-senha">aqui</Link>
         </p>

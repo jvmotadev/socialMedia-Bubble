@@ -20,6 +20,7 @@ align-items: center;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 20px;
 
   form{
     text-align: center;
@@ -28,6 +29,7 @@ align-items: center;
     align-items: flex-start;
     width: 100%;
     height: 100%;
+    gap: 12px;
   }
 
   input{
@@ -116,15 +118,25 @@ align-items: center;
   }
 }
 
-.erro {
-  border-radius: 4px;
-  color: white !important;
-  font-size: 1.2rem !important; 
-  place-self: center;
-  background: red;
-  padding: 0.5rem;
-  text-shadow: 1px 1px 6px red;
-}
+  .error-message,
+  .success-message {
+    border-radius: 4px;
+    font-size: 1.2rem !important; 
+    place-self: center;
+    padding: 0.5rem;
+    text-shadow: 1px 1px 6px red;
+    margin: 16px 0;
+  }
+
+  .error-message {
+    background: red;
+    color: white !important;
+  }
+
+  .success-message {
+    background: green;
+    color: white !important;
+  }
 
 @media (min-width: 768px) and (max-width: 1023px) {
 
@@ -168,6 +180,10 @@ align-items: center;
     margin-top: 40px;
     font-size: 18px;
   }
+
+  .esqueceu-senha {
+    margin-bottom: 300px;
+  }
 }
 
 @media (min-width: 1600px) {
@@ -192,6 +208,10 @@ align-items: center;
   label {
     margin-top: 40px;
     font-size: 18px;
+  }
+
+  .esqueceu-senha {
+    margin-bottom: 300px;
   }
 }
 `

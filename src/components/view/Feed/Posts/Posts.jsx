@@ -8,7 +8,7 @@ const Posts = ({ nomeUsuario, date, conteudo, deletePost, curtirPost }) => {
                 <div className="usuario">
                     <img
                         className="foto"
-                        src="https://www.pngkey.com/png/full/121-1219231_user-default-profile.png"
+                        src="../../../../public/foto-ana-luiza.png"
                         alt="foto usuario"
                     />
                     <div className="dados-usuario">
