@@ -48,7 +48,7 @@ const StyleHeaderFeed = styled.div`
     border-radius: 100px;
   }
   .nomeUsuario {
-    color: ${(props) => props.theme.colors.black.b200};
+    color: ${(props) => props.theme.colors.white.w50};
     font-family: Poppins;
     font-size: 32px;
     font-style: normal;

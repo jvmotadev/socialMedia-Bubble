@@ -91,7 +91,7 @@ const StylesModal = styled.div`
         font-size: 18px;
         font-style: normal;
         font-weight: 600;
-        line-height: 24px; /* 133.333% */
+        line-height: 24px;
     }
 
     .date{
@@ -100,7 +100,7 @@ const StylesModal = styled.div`
         font-size: 10px;
         font-style: normal;
         font-weight: 400;
-        line-height: 12px; /* 120% */
+        line-height: 12px;
     }
 
     .close{
@@ -125,7 +125,7 @@ const StylesModal = styled.div`
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
-        line-height: 24px; /* 133.333% */
+        line-height: 24px;
     }
 
     .textarea{
@@ -136,7 +136,8 @@ const StylesModal = styled.div`
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
-        line-height: 20px; /* 142.857% */
+        line-height: 20px;
+        padding-left: 8px;
     }
 
     .btn{

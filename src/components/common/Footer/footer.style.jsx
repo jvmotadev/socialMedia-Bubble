@@ -34,6 +34,7 @@ export const FooterStyle = styled.footer`
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
+    height: 18rem;
     .container {
       max-width: 70%;
       grid-template-columns: repeat(3, 1fr);
@@ -45,6 +46,7 @@ export const FooterStyle = styled.footer`
   }
 
   @media (min-width: 1025px) {
+    height: 18rem;
     .container {
       max-width: 70%;
       grid-template-columns: repeat(3, 1fr);
