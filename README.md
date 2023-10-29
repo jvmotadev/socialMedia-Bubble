@@ -4,16 +4,16 @@ Este projeto refere-se ao desenvolvimento do front-end da rede social fictícia 
 
 ## Índice 📑
 
-- [Sobre o Projeto](#sobre-o-projeto) 🌟
-- [Apresentação](#apresentação) 🖼
-- [Páginas do Projeto](#páginas-do-projeto) 🖥
-- [Tecnologias Utilizadas](#tecnologias-utilizadas) 💻
-- [Integração com o Back-End](#integração-com-o-back-end) 🔄
-- [Instalação e Execução](#instalação-e-execução) 🛠
-- [Estrutura do Projeto](#estrutura-do-projeto) 🗂
-- [Contribuidores](#contribuidores) 👥
-- [Contribuição](#contribuição) 🙌
-- [Licença](#licença) 📄
+- [Sobre o Projeto](#sobre-o-projeto-🌟) 🌟
+- [Apresentação](#apresentação-🖼) 🖼
+- [Páginas do Projeto](#páginas-do-projeto-🖥) 🖥
+- [Tecnologias Utilizadas](#tecnologias-utilizadas-💻) 💻
+- [Integração com o Back-End](#integração-com-o-back-end-🔄) 🔄
+- [Instalação e Execução](#instalação-e-execução-🛠) 🛠
+- [Estrutura do Projeto](#estrutura-do-projeto-🗂) 🗂
+- [Contribuidores](#contribuidores-👥) 👥
+- [Contribuição](#contribuição-🙌) 🙌
+- [Licença](#licença-📄) 📄
 
 ## Sobre o Projeto 🌟
 
